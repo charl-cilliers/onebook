@@ -29,6 +29,9 @@ class Business extends Model
      *
      * @var array
      */
+
+//    protected $table = 'business';
+
     protected $hidden = [
         'password',
     ];

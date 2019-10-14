@@ -25,3 +25,22 @@ Route::group(['middleware' => ['auth.user']], function() {
 Route::group(['middleware' => ['auth.device']], function() {
     // Add the routes requiring device authentication here
 });
+
+Route::get('email/verify/{id}', 'VerificationApiController@verify')->name('verificationapi.verify');
+Route::get('email/resend', 'VerificationApiController@resend')->name('verificationapi.resend');
+
+Route::post('login', 'UsersApiController@login');
+Route::post('register', 'UsersApiController@register');
+Route::group(['middleware' => 'auth:api'], function(){
+    Route::post('details', 'UsersApiController@details')->middleware('verified');
+}); // will work only when user has verified the email
+
+Route::group([
+    'namespace' => 'Auth',
+    'middleware' => 'api',
+    'prefix' => 'password'
+], function () {
+    Route::post('create', 'PasswordResetController@create');
+    Route::get('find/{token}', 'PasswordResetController@find');
+    Route::post('reset', 'PasswordResetController@reset');
+});

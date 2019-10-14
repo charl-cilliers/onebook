@@ -6,8 +6,11 @@ use App\Device;
 use App\Exceptions\NoDeviceException;
 use App\User;
 use Auth;
+use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class UserService {
+
+    use SendsPasswordResetEmails;
 
     public function __construct() {
         //
@@ -27,8 +30,13 @@ class UserService {
         if (!$device) {
             throw new NoDeviceException('Error creating the device');
         }
+        $user->sendApiEmailVerificationNotification();
+        $success['message'] = 'Please confirm yourself by clicking on verify user button sent to you on your email';
+        $token = $this->broker()->createToken($user);
+        $user->verify_token = $token;
+        $user->save();
 
-        return ['user'=>$user, 'device' => $device, 'access_token' => $access_token];
+        return ['user'=>$user, 'device' => $device, 'access_token' => $access_token, 'verify token' => $token, 'success' => $success];
     }
 
     public function login($request){

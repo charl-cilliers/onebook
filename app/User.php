@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Notifications\VerifyApiEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'mobile_number'
+        'name', 'surname', 'email', 'password', 'mobile_number', 'blocked', 'block_reason'
     ];
 
     /**
@@ -55,6 +56,11 @@ class User extends Authenticatable
 
     public function appointments() {
         return $this->hasMany('App\Appointment');
+    }
+
+    public function sendApiEmailVerificationNotification()
+    {
+        $this->notify(new VerifyApiEmail); // my notification
     }
 
 }

@@ -15,6 +15,21 @@
         color: rgba(26, 128, 129, 1);
     }
 
+    .input[type=text] {
+        border: none;
+        border-bottom: 2px solid grey;
+    }
+
+    .input[type=email] {
+        border: none;
+        border-bottom: 2px solid grey;
+    }
+
+    .input[type=password] {
+        border: none;
+        border-bottom: 2px solid grey;
+    }
+
 </style>
 
 <script>
@@ -58,7 +73,7 @@
                             </div>
 
                             <div class="row col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-valid @enderror" name="name" placeholder="What is your business called?" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-valid @enderror input" name="name" placeholder="What is your business called?" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -68,7 +83,7 @@
                             </div>
 
                             <div class="col-md-6">
-                                <input id="industry" type="text" class="form-control" name="industry" placeholder="Select the most relevant industry" value="{{ old('industry') }}">
+                                <input id="industry" type="text" class="form-control input" name="industry" placeholder="Select the most relevant industry" value="{{ old('industry') }}">
 
                             </div>
                         </div>
@@ -89,7 +104,7 @@
                             </div>
 
                             <div class="row col-md-12">
-                                <input id="description" type="text" class="form-control" name="description" placeholder="Describe your business">
+                                <input id="description" type="text" class="form-control input" name="description" placeholder="Describe your business">
 
                             </div>
                         </div>
@@ -100,7 +115,7 @@
                             </div>
 
                             <div class="row col-md-12">
-                                <input id="location" class="form-control" name="location" placeholder="What is your business address?" value="{{ old('location') }}">
+                                <input id="location" class="form-control input" name="location" placeholder="What is your business address?" value="{{ old('location') }}">
 
                             </div>
                         </div>
@@ -111,7 +126,7 @@
                             </div>
 
                             <div class="row col-md-12">
-                                <input id="mobile_number" type="text" class="form-control" name="mobile_number" placeholder="What is your business' mobile number?" value="{{ old('mobile_number') }}">
+                                <input id="mobile_number" type="text" class="form-control input" name="mobile_number" placeholder="What is your business' mobile number?" value="{{ old('mobile_number') }}">
 
                             </div>
                         </div>
@@ -122,7 +137,7 @@
                             </div>
 
                             <div class="row col-md-12">
-                                <input id="email" type="email" class="form-control @error('email') is-valid @enderror" name="email" placeholder="What is your business' contact email address?" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-valid @enderror input" name="email" placeholder="What is your business' contact email address?" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -142,7 +157,7 @@
                             </div>
 
                             <div class="row col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Create secure password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror input" name="password" placeholder="Create secure password" required autocomplete="new-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -152,7 +167,7 @@
                             </div>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm password" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control input" name="password_confirmation" placeholder="Confirm password" required autocomplete="new-password">
                             </div>
                         </div>
 

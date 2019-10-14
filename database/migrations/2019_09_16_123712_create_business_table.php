@@ -13,17 +13,17 @@ class CreateBusinessTable extends Migration
      */
     public function up()
     {
-        Schema::create('business', function (Blueprint $table) {
+        Schema::create('businesses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('description');
             $table->string('mobile_number')->unique();
             $table->string('email')->unique();
+            $table->string('location');
             $table->string('password', 512);
-            $table->string('status');
-            $table->unsignedBigInteger('industry_id')->foreign()->references('id')->on('industry');
-            $table->boolean('blocked');
-            $table->string('block_reason');
+            $table->string('status')->default('Pending');
+            $table->boolean('blocked')->default(false);
+            $table->string('block_reason')->default(NULL);
             $table->timestamps();
         });
     }
@@ -35,6 +35,6 @@ class CreateBusinessTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('business');
+        Schema::dropIfExists('businesses');
     }
 }

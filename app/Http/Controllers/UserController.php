@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Services\UserService;
 
@@ -16,8 +17,10 @@ class UserController extends BaseApiController
     public function register(Request $request) {
         $validation_rules = array(
             'user.name'=>'required|string',
+            'user.surname'=>'required|string',
             'user.email'=>'required|string',
-            'user.password'=>'required|confirmed|min:8|max:32',
+            'user.mobile_number' => 'required|regex:^\+27[0-9]{9}$^',
+            'user.password'=>'required|min:8|max:32',
             'device.device_id'=>'required',
             'device.type'       =>'required',
             'device.version'    =>'required',
@@ -25,6 +28,7 @@ class UserController extends BaseApiController
         );
 
         $this->validateRequest($request, $validation_rules);
+
 
         return $this->response($this->userService->register($request->input()));
     }
@@ -40,5 +44,10 @@ class UserController extends BaseApiController
         $this->validateRequest($request, $validation_rules);
 
         return $this->response($this->userService->login($request->input()));
+    }
+
+    public function resetPassword(Request $request) {
+        $user = User::find($request['id']);
+
     }
 }

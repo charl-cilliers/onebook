@@ -2,6 +2,7 @@
 
 namespace App\Http\Services;
 
+use App\Business;
 use App\Device;
 use App\Exceptions\NoDeviceException;
 use App\User;
@@ -14,20 +15,9 @@ class BusinessService {
     }
 
     public function registerBusiness($request) {
-        $user = $this->createUser($request['user']);
-        if (!is_null($user)) {
-            $device = $this->createAndLinkDevice($user, $request['device']);
-            if (!$device) {
-                $user->delete();
-            }
-            $access_token = $device->getAccessToken();
-        }
+        $business = $this->createBusiness($request);
 
-        if (!$device) {
-            throw new NoDeviceException('Error creating the device');
-        }
-
-        return ['user'=>$user, 'device' => $device, 'access_token' => $access_token];
+        return ['business'=>$business];
     }
 
     public function login($request){
@@ -43,6 +33,13 @@ class BusinessService {
         $user->password = bcrypt($user['password']);
         $user->save();
         return $user;
+    }
+
+    protected function createBusiness(array $business) {
+        $business = new Business($business);
+        $business->password = bcrypt($business['password']);
+        $business->save();
+        return $business;
     }
 
     protected function createAndLinkDevice(User $user, $deviceData) {

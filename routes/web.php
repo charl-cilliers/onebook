@@ -27,5 +27,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('register-step1','BusinessController@register')->name('getRegister');
 Route::post('register-step1', 'BusinessController@registerBusiness')->name('postRegister');
 
-Route::get('/business/register-step2', 'BusinessController@serviceProviders')->name('getRegister2');
-Route::post('/business/register-step2', 'BusinessController@postServiceProviders')->name('postRegister2');
+Route::get('register-step2', 'BusinessController@serviceProviders')->name('getRegister2');
+Route::post('register-step2', 'BusinessController@postServiceProviders')->name('postRegister2');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\BusinessService;
+use HttpRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -20,8 +21,7 @@ class BusinessController extends BaseWebController
         return view('business.register', compact('business',$business));
     }
 
-    public function registerBusiness() {
-        $request = new \Illuminate\Http\Request(Input::all());
+    public function registerBusiness(Request $request) {
         $validation_rules = array(
             'name'=>'required|string',
             'email'=>'required|string',
@@ -33,9 +33,9 @@ class BusinessController extends BaseWebController
 
         $this->validateRequest($request, $validation_rules);
 
-        $array = $this->registerBusiness($request->input());
+        $array = $this->businessService->registerBusiness($request->input());
 
-        return redirect('/business/register1');
+        return route('getRegister2');
     }
 
     public function serviceProviders (Request $request) {
