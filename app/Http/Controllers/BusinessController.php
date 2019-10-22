@@ -6,6 +6,7 @@ use App\Http\Services\BusinessService;
 use HttpRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use View;
 
 class BusinessController extends BaseWebController
 {
@@ -39,8 +40,8 @@ class BusinessController extends BaseWebController
     }
 
     public function serviceProviders (Request $request) {
-        $business = $request->session()->get('business');
-        return view('business.register1', compact('business',$business));
+        $provider = $request->session()->get('provider');
+        return view('business.register1', compact('provider',$provider));
     }
 
     public function postServiceProviders (Request $request) {

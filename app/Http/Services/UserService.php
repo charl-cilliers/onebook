@@ -30,13 +30,10 @@ class UserService {
         if (!$device) {
             throw new NoDeviceException('Error creating the device');
         }
-        $user->sendApiEmailVerificationNotification();
-        $success['message'] = 'Please confirm yourself by clicking on verify user button sent to you on your email';
-        $token = $this->broker()->createToken($user);
-        $user->verify_token = $token;
+
         $user->save();
 
-        return ['user'=>$user, 'device' => $device, 'access_token' => $access_token, 'verify token' => $token, 'success' => $success];
+        return ['user'=>$user, 'device' => $device, 'access_token' => $access_token];
     }
 
     public function login($request){
@@ -65,5 +62,13 @@ class UserService {
         $device->user()->associate($user);
         $device->save();
         return $device;
+    }
+
+    public function sendEmail (User $user) {
+        $user->sendApiEmailVerificationNotification();
+        $success['message'] = 'Please confirm yourself by clicking on verify user button sent to you on your email';
+        $token = $this->broker()->createToken($user);
+        $user->verify_token = $token;
+        $user->save();
     }
 }

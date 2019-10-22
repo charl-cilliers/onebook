@@ -23,7 +23,7 @@ class CreateBusinessTable extends Migration
             $table->string('password', 512);
             $table->string('status')->default('Pending');
             $table->boolean('blocked')->default(false);
-            $table->string('block_reason')->default(NULL);
+            $table->string('block_reason')->nullable();
             $table->timestamps();
         });
     }

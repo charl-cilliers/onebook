@@ -29,3 +29,5 @@ Route::post('register-step1', 'BusinessController@registerBusiness')->name('post
 
 Route::get('register-step2', 'BusinessController@serviceProviders')->name('getRegister2');
 Route::post('register-step2', 'BusinessController@postServiceProviders')->name('postRegister2');
+
+Route::resource('business', 'BusinessController');
