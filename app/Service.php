@@ -4,6 +4,33 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Service
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $description
+ * @property int $price
+ * @property int $business_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Appointment[] $appointments
+ * @property-read int|null $appointments_count
+ * @property-read \App\Business $business
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Provider[] $providers
+ * @property-read int|null $providers_count
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Service newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Service newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Service query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Service whereBusinessId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Service whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Service whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Service whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Service whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Service wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Service whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Service extends Model
 {
     /**

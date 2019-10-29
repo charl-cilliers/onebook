@@ -4,6 +4,56 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Business
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $description
+ * @property string $mobile_number
+ * @property string $email
+ * @property string $location
+ * @property string $password
+ * @property string $status
+ * @property int $blocked
+ * @property string|null $block_reason
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Appointment[] $appointments
+ * @property-read int|null $appointments_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Favorite[] $favorites
+ * @property-read int|null $favorites_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Flag[] $flags
+ * @property-read int|null $flags_count
+ * @property-read \App\Industry $industry
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Product[] $products
+ * @property-read int|null $products_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Provider[] $providers
+ * @property-read int|null $providers_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Rating[] $ratings
+ * @property-read int|null $ratings_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Service[] $services
+ * @property-read int|null $services_count
+ * @property-read \App\TradingHours $tradingHours
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Walkin[] $walkIns
+ * @property-read int|null $walk_ins_count
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Business newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Business newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Business query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Business whereBlockReason($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Business whereBlocked($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Business whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Business whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Business whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Business whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Business whereLocation($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Business whereMobileNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Business whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Business wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Business whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Business whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Business extends Model
 {
     /**

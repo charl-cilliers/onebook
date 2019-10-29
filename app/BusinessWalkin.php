@@ -5,6 +5,16 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
+/**
+ * App\BusinessWalkin
+ *
+ * @property-read \App\Business $business
+ * @property-read \App\Walkin $walkin
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\BusinessWalkin newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\BusinessWalkin newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\BusinessWalkin query()
+ * @mixin \Eloquent
+ */
 class BusinessWalkin extends Pivot
 {
     /**

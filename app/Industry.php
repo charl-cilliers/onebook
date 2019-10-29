@@ -4,6 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Industry
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Business[] $business
+ * @property-read int|null $business_count
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Industry newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Industry newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Industry query()
+ * @mixin \Eloquent
+ */
 class Industry extends Model
 {
     /**

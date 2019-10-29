@@ -36,12 +36,12 @@ class BusinessController extends BaseWebController
 
         $array = $this->businessService->registerBusiness($request->input());
 
-        return route('getRegister2');
+        return redirect()->route('getRegister2');
     }
 
     public function serviceProviders (Request $request) {
         $provider = $request->session()->get('provider');
-        return view('business.register1', compact('provider',$provider));
+        return view('business.registerProvider', compact('provider',$provider));
     }
 
     public function postServiceProviders (Request $request) {

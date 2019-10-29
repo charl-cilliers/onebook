@@ -50,22 +50,22 @@ class PasswordResetController extends Controller
      * @return [string] message
      * @return [json] passwordReset object
      */
-    public function find($token)
-    {
-        $passwordReset = PasswordReset::where('token', $token)
-            ->first();
-        if (!$passwordReset)
-            return response()->json([
-                'message' => 'This password reset token is invalid.'
-            ], 404);
-        if (Carbon::parse($passwordReset->updated_at)->addMinutes(720)->isPast()) {
-            $passwordReset->delete();
-            return response()->json([
-                'message' => 'This password reset token is invalid.'
-            ], 404);
-        }
-        return response()->json($passwordReset);
-    }
+//    public function find($token)
+//    {
+//        $passwordReset = PasswordReset::where('token', $token)
+//            ->first();
+//        if (!$passwordReset)
+//            return response()->json([
+//                'message' => 'This password reset token is invalid.'
+//            ], 404);
+//        if (Carbon::parse($passwordReset->updated_at)->addMinutes(720)->isPast()) {
+//            $passwordReset->delete();
+//            return response()->json([
+//                'message' => 'This password reset token is invalid.'
+//            ], 404);
+//        }
+//        return response()->json($passwordReset);
+//    }
      /**
      * Reset password
      *

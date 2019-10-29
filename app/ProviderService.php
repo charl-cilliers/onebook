@@ -5,6 +5,16 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
+/**
+ * App\ProviderService
+ *
+ * @property-read \App\Provider $providers
+ * @property-read \App\Service $services
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProviderService newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProviderService newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProviderService query()
+ * @mixin \Eloquent
+ */
 class ProviderService extends Pivot
 {
     /**

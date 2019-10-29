@@ -5,6 +5,16 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
+/**
+ * App\Favorite
+ *
+ * @property-read \App\Business $business
+ * @property-read \App\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Favorite newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Favorite newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Favorite query()
+ * @mixin \Eloquent
+ */
 class Favorite extends Pivot
 {
     /**

@@ -4,6 +4,38 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Appointment
+ *
+ * @property int $id
+ * @property int $business_id
+ * @property int $service_id
+ * @property int $provider_id
+ * @property int|null $user_id
+ * @property int|null $walkin_id
+ * @property string $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Business $business
+ * @property-read \App\Provider $providers
+ * @property-read \App\Rating $ratings
+ * @property-read \App\Service $services
+ * @property-read \App\User|null $user
+ * @property-read \App\Walkin|null $walkin
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Appointment newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Appointment newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Appointment query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Appointment whereBusinessId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Appointment whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Appointment whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Appointment whereProviderId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Appointment whereServiceId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Appointment whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Appointment whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Appointment whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Appointment whereWalkinId($value)
+ * @mixin \Eloquent
+ */
 class Appointment extends Model
 {
     /**

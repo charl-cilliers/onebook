@@ -23,10 +23,15 @@ Route::group(['middleware' => ['auth.user']], function() {
     Route::post('user/login', 'UserController@login');
 });
 Route::group(['middleware' => ['auth.device']], function() {
-    // Add the routes requiring device authentication here
+    Route::put('user/editUser','UserController@editUser');
+    Route::put('user/changePassword','UserController@changePassword');
+    Route::get('user/getTotalAppointments','UserController@getTotalAppointments');
 });
+Route::get('user/checkVerify','UserController@checkVerify');
 
-Route::get('email/verify/{id}', 'VerificationApiController@verify')->name('verificationapi.verify');
+Route::post('user/sendVerify', 'UserController@sendVerify');
+
+Route::get('email/verify', 'VerificationApiController@verify')->name('verificationapi.verify');
 Route::get('email/resend', 'VerificationApiController@resend')->name('verificationapi.resend');
 
 Route::post('login', 'UsersApiController@login');
